@@ -5,7 +5,7 @@ myHeaders.append("Accept", "application/json");
 async function testarUsuario() {
     // cenario1: procurar usuario com o id correto | esperado: retornar dados do usuario
     // id para a procura do usuario
-    const id_correto = "0uxuPY0cbmQhpEz1";
+    const id_correto = "v8TIo6AJUtglMwT6";
 
     const response1 = await fetch(`https://serverest.dev/usuarios/${id_correto}`, {
     method: "GET",
@@ -18,7 +18,7 @@ async function testarUsuario() {
 
     // validacao1
     let resultado1 = false;
-    if (response1.ok && JSON.stringify(result1).includes("Esther")) {
+    if (response1.ok && JSON.stringify(result1).includes("desafio-api")) {
         resultado1 = "Aprovado";
     }
     else{
@@ -27,7 +27,7 @@ async function testarUsuario() {
 
     // cenario2: procurar usuario com o id incorreto | esperado: aviso de cliente nao encontrado
     // id para a procura do usuario
-    const id_incorreto = "0uxuPY0cbmQhpEz2";
+    const id_incorreto = "v8TIo6AJUtglMwT5";
 
     const response2 = await fetch(`https://serverest.dev/usuarios/${id_incorreto}`, {
     method: "GET",

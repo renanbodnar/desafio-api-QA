@@ -4,7 +4,7 @@ myHeaders.append("Accept", "application/json");
 
 async function testarProduto() {
     // cenario1: procurar produto com o id correto | esperado: retornar dados do produto
-    const response1 = await fetch("https://serverest.dev/produtos/BeeJh5lz3k6kSIzA", {
+    const response1 = await fetch("https://serverest.dev/produtos/m22ROuH9Fv5lvgPk", {
     method: "GET",
     headers: myHeaders,
     redirect: "follow"
@@ -15,7 +15,7 @@ async function testarProduto() {
 
     // validacao1
     let resultado1 = false;
-    if (response1.ok && JSON.stringify(result1).includes("Logitech MX Vertical")) {
+    if (response1.ok && JSON.stringify(result1).includes("Testador humano")) {
         resultado1 = "Aprovado";
     }
     else{
@@ -23,7 +23,7 @@ async function testarProduto() {
     }
 
     // cenario2: procurar produto com o id incorreto | esperado: aviso de produto nao encontrado
-    const response2 = await fetch("https://serverest.dev/produtos/BeeJh5lz3k6kSIzB", {
+    const response2 = await fetch("https://serverest.dev/produtos/BeeJh5lz3k6kSIyX", {
     method: "GET",
     headers: myHeaders,
     redirect: "follow"

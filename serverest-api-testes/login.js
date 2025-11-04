@@ -6,8 +6,8 @@ myHeaders.append("Accept", "application/json");
 async function testarLogin() {
   // cenário 1: testar credenciais corretas | esperado: resposta de login com sucesso
   const raw = JSON.stringify({
-    "email": "fulano@qa.com",
-    "password": "teste"
+    "email": "desafio@api.com.br",
+    "password": "desafioapi"
   });
 
   const response1 = await fetch("https://serverest.dev/login", {
@@ -26,12 +26,13 @@ async function testarLogin() {
     resultado1 = "Aprovado";
   }
   else{
-    resultado1 = "Reprovado";
+    resultado1 = "Reprovado:";
+    console.log("Verifique se o usuario esta cadastrado","\n")
   }
   // cenário 2: testar credenciais incorretas | esperado: resposta indicando e-mail ou senha incorretos
   const raw2 = JSON.stringify({
-    "email": "fulano@qa.com",
-    "password": "testes"
+    "email": "desafio@api.com.br",
+    "password": "desafioapis"
   });
 
   const response2 = await fetch("https://serverest.dev/login", {
