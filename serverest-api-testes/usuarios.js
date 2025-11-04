@@ -1,11 +1,18 @@
-// teste da API de usuarios serverest
+// teste da API de usuarios serverest em que dois cenarios sao testados: retorno da API em caso de input de id correto e incorreto
+
+// cadastrando o usuario, pois ele eh temporario. Caso ainda esteja ativo, nao fara interferencia no teste
+import { cadastroUsuario } from "./cadastro.js";
+const email = "testeusuario@jupiter.com";
+const senha = "pizza123";
+let id_usuario = await cadastroUsuario(email,senha);
+
 const myHeaders = new Headers();
 myHeaders.append("Accept", "application/json");
 
-async function testarUsuario() {
-    // cenario1: procurar usuario com o id correto | esperado: retornar dados do usuario
+async function testarUsuario(id_usuario) {
+    // cenario 1: procurar usuario com o id correto | esperado: retornar dados do usuario
     // id para a procura do usuario
-    const id_correto = "v8TIo6AJUtglMwT6";
+    const id_correto = id_usuario;
 
     const response1 = await fetch(`https://serverest.dev/usuarios/${id_correto}`, {
     method: "GET",
@@ -16,18 +23,18 @@ async function testarUsuario() {
     const result1 = await response1.json();
     console.log(result1, "\n");
 
-    // validacao1
+    // validacao 1
     let resultado1 = false;
-    if (response1.ok && JSON.stringify(result1).includes("desafio-api")) {
+    if (response1.ok && JSON.stringify(result1).includes("Desafio API")) {
         resultado1 = "Aprovado";
     }
     else{
         resultado1 = "Reprovado";
     }
 
-    // cenario2: procurar usuario com o id incorreto | esperado: aviso de cliente nao encontrado
+    // cenario 2: procurar usuario com o id incorreto | esperado: aviso de cliente nao encontrado
     // id para a procura do usuario
-    const id_incorreto = "v8TIo6AJUtglMwT5";
+    const id_incorreto = "tgOnGdLTf2FVQhr1";
 
     const response2 = await fetch(`https://serverest.dev/usuarios/${id_incorreto}`, {
     method: "GET",
@@ -38,7 +45,7 @@ async function testarUsuario() {
     const result2 = await response2.json();
     console.log(result2, "\n");
 
-    // validacao2
+    // validacao 2
     let resultado2 = false;
     if (!response2.ok && result2.message && result2.message.includes("não encontrado")) {
         resultado2 = "Aprovado";
@@ -48,8 +55,8 @@ async function testarUsuario() {
     }
 
   // resultado final: se os dois cenarios de teste tiverem seus resultados esperados, sera aprovado. Caso um cenario tenha falha, o resultado sera reprovado
-  console.log('Cenario 1: ',resultado1,"\n");
-  console.log('Cenario 2: ',resultado2,"\n");
+  console.log('Cenario 1 usuario: ',resultado1,"\n");
+  console.log('Cenario 2 usuario: ',resultado2,"\n");
   
   if (resultado1 === "Aprovado" && resultado2 === "Aprovado") {
     console.log("TESTE APROVADO!");
@@ -59,4 +66,4 @@ async function testarUsuario() {
 }
 
 // executa
-testarUsuario();
+testarUsuario(id_usuario);

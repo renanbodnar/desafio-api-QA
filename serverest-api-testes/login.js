@@ -1,13 +1,14 @@
-// teste da API de login serverest
+// teste da API de login serverest em que dois cenarios são testados: login bem-sucedido e login falho
+
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 myHeaders.append("Accept", "application/json");
 
-async function testarLogin() {
+export async function testarLogin() {
   // cenário 1: testar credenciais corretas | esperado: resposta de login com sucesso
   const raw = JSON.stringify({
-    "email": "desafio@api.com.br",
-    "password": "desafioapi"
+    "email": "desserverest@apiteste.com",
+    "password": "apisenha"
   });
 
   const response1 = await fetch("https://serverest.dev/login", {
@@ -54,17 +55,18 @@ async function testarLogin() {
     resultado2 = "Reprovado";
   }
 
-  // resultado final: se os dois cenarios de teste tiverem seus resultados esperados, sera aprovado. Caso um cenario tenha falha, o resultado sera reprovado
-  console.log('Cenario 1: ',resultado1,"\n");
-  console.log('Cenario 2: ',resultado2,"\n");
+  // resultado final: se os dois cenarios de teste tiverem seus resultados esperados, sera aprovado. Caso um cenario tenha falha, o resultado geral sera reprovado
+  console.log('Cenario 1 login: ',resultado1,"\n");
+  console.log('Cenario 2 login: ',resultado2,"\n");
   
   if (resultado1 === "Aprovado" && resultado2 === "Aprovado") {
     console.log("TESTE APROVADO!");
   } else {
     console.log("TESTE REPROVADO!");
   }
+
+  return result1.authorization;
 }
 
 // executa
 testarLogin();
-
