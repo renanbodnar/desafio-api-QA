@@ -1,6 +1,6 @@
 # Projeto de Testes de API – Serverest
 
-Este projeto tem como objetivo automatizar os principais cenários de teste da API [Serverest](https://serverest.dev/), uma plataforma gratuita utilizada para fins educacionais em testes de API REST.
+Este projeto tem como objetivo automatizar os principais cenários de teste da API [Serverest](https://serverest.dev/).
 
 ---
 
@@ -8,20 +8,21 @@ Este projeto tem como objetivo automatizar os principais cenários de teste da A
 
 ### 1️. Clonar o repositório
 git clone https://github.com/renanbodnar/desafio-api-QA.git
+
 cd serverest-API-QA
 
 
 ### 2. Executar os testes
 node nomeDoArquivo.js
 
-### 3. Sequência de testes e orientações (FUNDAMENTAL SEGUIR A ORDEM PARA O FUNCIONAMENTO ADEQUADO)!!!
+### 3. Sequência de testes e orientações **(FUNDAMENTAL SEGUIR A ORDEM PARA O FUNCIONAMENTO ADEQUADO)!!!**
 
-1. cadastro.js (garantir que o usuario esteja cadastrado antes de qualquer coisa)
+1. **cadastro.js** (garantir que o usuario esteja cadastrado antes de qualquer coisa)
     obs: o arquivo contém funções que cadastram e excluem (usuário e produto) para viabilidade de repetições 
-2. login.js (testará o login)
-3. usuarios.js (testa a busca pelo id)
-4. produtos.js (procura produto pelo id)
-5. carrinhos.js (cadastra e exclui carrinho de compras)
+2. **login.js** (testará o login)
+3. **usuarios.js** (testa a busca pelo id)
+4. **produtos.js** (procura produto pelo id)
+5. **carrinhos.js** (cadastra e exclui carrinho de compras)
 
 ---
 
