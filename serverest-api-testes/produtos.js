@@ -1,5 +1,8 @@
 // teste da API de produtos serverest em que dois cenarios sao testados: retorno de dados em caso de id correto e incorreto
 
+// sera usado no final
+import { excluiProduto } from "./cadastro.js";
+
 // cadastrando o produto
 import { cadastroProduto } from "./cadastro.js";
 let id_produto = await cadastroProduto();
@@ -52,12 +55,19 @@ async function testarProduto(id_produto) {
     console.log('Cenario 2 produto: ',resultado2,"\n");
   
     if (resultado1 === "Aprovado" && resultado2 === "Aprovado") {
-        console.log("TESTE APROVADO!");
+        console.log("TESTE DE PRODUTO APROVADO!");
     } else {
-        console.log("TESTE REPROVADO!");
+        console.log("TESTE DE PRODUTO REPROVADO!");
     }
 
 }
 
 // executa
-testarProduto(id_produto);
+await testarProduto(id_produto);
+
+// exclui o produto
+await excluiProduto(id_produto);
+
+
+
+

@@ -60,13 +60,13 @@ export async function testarLogin() {
   console.log('Cenario 2 login: ',resultado2,"\n");
   
   if (resultado1 === "Aprovado" && resultado2 === "Aprovado") {
-    console.log("TESTE APROVADO!");
+    console.log("TESTE DE LOGIN APROVADO!");
   } else {
-    console.log("TESTE REPROVADO!");
+    console.log("TESTE DE LOGIN REPROVADO!");
   }
 
   return result1.authorization;
 }
 
 // executa
-testarLogin();
+await testarLogin();

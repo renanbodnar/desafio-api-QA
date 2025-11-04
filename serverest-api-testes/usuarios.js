@@ -1,10 +1,14 @@
 // teste da API de usuarios serverest em que dois cenarios sao testados: retorno da API em caso de input de id correto e incorreto
 
-// cadastrando o usuario, pois ele eh temporario. Caso ainda esteja ativo, nao fara interferencia no teste
+// sera usado no final
+import { excluiUsuario } from "./cadastro.js";
+
+// cadastrando o usuario, pois ele eh temporario. Caso ainda esteja ativo, o teste nao funcionara!!!
 import { cadastroUsuario } from "./cadastro.js";
-const email = "testeusuario@jupiter.com";
-const senha = "pizza123";
+const email = "testenovousuario@venus.com";
+const senha = "pizza12345";
 let id_usuario = await cadastroUsuario(email,senha);
+console.log(id_usuario);
 
 const myHeaders = new Headers();
 myHeaders.append("Accept", "application/json");
@@ -59,11 +63,14 @@ async function testarUsuario(id_usuario) {
   console.log('Cenario 2 usuario: ',resultado2,"\n");
   
   if (resultado1 === "Aprovado" && resultado2 === "Aprovado") {
-    console.log("TESTE APROVADO!");
+    console.log("TESTE DE USUARIO APROVADO!");
   } else {
-    console.log("TESTE REPROVADO!");
+    console.log("TESTE DE USUARIO REPROVADO!");
   }
 }
 
 // executa
-testarUsuario(id_usuario);
+await testarUsuario(id_usuario);
+
+// executa funcao para excluir usuario criado
+await excluiUsuario(id_usuario);
